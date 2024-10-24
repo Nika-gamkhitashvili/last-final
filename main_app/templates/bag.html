@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/bag.css' %}"/>
+    <div class="container">
+        <h2>Your Bag</h2>
+        <ul class="product-list" id="product-list">
+            <!-- Products will be dynamically added here -->
+        </ul>
+        <div class="total" id="total">
+            Total: $0
+        </div>
+        <button onclick="checkout()">Checkout</button>
+        <button onclick="clearCart()">Clear</button>
+        <button id="orderCart">Order</button>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let orderHistory = JSON.parse(localStorage.getItem('orderHistory')) || [];
+
+        function updateCart() {
+            const productList = document.getElementById('product-list');
+            const totalElement = document.getElementById('total');
+            productList.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(product => {
+                const li = document.createElement('li');
+                li.textContent = `${product.name} - $${product.price}`;
+                productList.appendChild(li);
+                total += product.price;
+            });
+
+            totalElement.textContent = `Total: $${total}`;
+            console.log(cart);
+        }
+
+        function checkout() {
+            alert('Proceeding to checkout');
+            // Add your checkout logic here
+        }
+
+        function clearCart() {
+            cart = [];
+            localStorage.removeItem('cart');
+            updateCart();
+            alert('Cart has been cleared');
+        }
+
+        document.getElementById("orderCart").addEventListener("click", function() {
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                alert("Thank you for your order!");
+
+                // შეკვეთების ისტორიის განახლება
+                orderHistory.push(...cart);
+                localStorage.setItem('orderHistory', JSON.stringify(orderHistory));
+
+                cart = []; // კალათის გასუფთავება შეკვეთის შემდეგ
+                localStorage.removeItem('cart');
+                updateCart(); // კალათის შიგთავსის განახლება
+
+                // გადამისამართება ისტორიის გვერდზე
+                window.location.href = "{% url 'history' %}";
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', updateCart);
+    </script>
+{% endblock %}

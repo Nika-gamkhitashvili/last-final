@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="container">
+
+        <h2>საკვები</h2>
+        <div class="category">
+            <h3>ხინკალი</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image5.jpg' %}" alt="Product 1">
+                <p>Price: $1</p>
+                <button onclick="addToCart('ხინკალი', 1)">Buy</button>
+            </div>
+        </div>
+        <div class="category">
+            <h3>მწვადი</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image2.jpg' %}" alt="Product 2">
+                <p>Price: $15</p>
+                <button onclick="addToCart('მწვადი', 15)">Buy</button>
+            </div>
+
+        </div>
+                <div class="category">
+            <h3>ღომი</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image3.jpg' %}" alt="Product 3">
+                <p>Price: $8</p>
+                <button onclick="addToCart('ღომი', 8)">Buy</button>
+            </div>
+
+        </div>
+
+                <div class="category">
+            <h3>იმერული ხაჭაპური</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image4.jpg' %}" alt="Product 4">
+                <p>Price: $14</p>
+                <button onclick="addToCart('იმერული ხაჭაპური', 14)">Buy</button>
+            </div>
+
+        </div>
+
+
+        <h2>სასმელები</h2>
+        <div class="category">
+            <h3>კოკაკოლა</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image8.jpg' %}" alt="Product 1">
+                <p>Price: $1</p>
+                <button onclick="addToCart('კოკაკოლა', 1)">Buy</button>
+            </div>
+        </div>
+        <div class="category">
+            <h3>პეფსი</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image7.jpg' %}" alt="Product 2">
+                <p>Price: $1</p>
+                <button onclick="addToCart('პეფსი', 1)">Buy</button>
+            </div>
+
+        </div>
+                <div class="category">
+            <h3>ფანტა</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image9.jpg' %}" alt="Product 3">
+                <p>Price: $1</p>
+                <button onclick="addToCart('ფანტა', 1)">Buy</button>
+            </div>
+
+        </div>
+
+                <div class="category">
+            <h3>ლიმონათი</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image10.jpg' %}" alt="Product 4">
+                <p>Price: $1,5</p>
+                <button onclick="addToCart('ლიმონათი', 2,5)">Buy</button>
+            </div>
+
+        </div>
+
+
+                <h2>ალკოჰოლები</h2>
+        <div class="category">
+            <h3>Kardanakhi</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image11.jpg' %}" alt="Product 1">
+                <p>Price: $25</p>
+                <button onclick="addToCart('Kardanakhi', 25)">Buy</button>
+            </div>
+        </div>
+        <div class="category">
+            <h3>Semillon</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image12.jpg' %}" alt="Product 2">
+                <p>Price: $35</p>
+                <button onclick="addToCart('Semillon', 35)">Buy</button>
+            </div>
+
+        </div>
+                <div class="category">
+            <h3>Old Kakheti</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image13.jpg' %}" alt="Product 3">
+                <p>Price: $30</p>
+                <button onclick="addToCart('Old Kakheti', 30)">Buy</button>
+            </div>
+
+        </div>
+
+                <div class="category">
+            <h3>Andre Renard</h3>
+            <div class="card">
+                <img src="{% static 'categories_images/image14.jpg' %}" alt="Product 4">
+                <p>Price: $250</p>
+                <button onclick="addToCart('Andre Renard', 250)">Buy</button>
+            </div>
+
+        </div>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                margin: 0;
+                padding: 0;
+            }
+            .container {
+                padding: 20px;
+                width: 95%;
+            }
+            .category {
+                margin: 20px 0;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            .category h3 {
+                margin-top: 0;
+            }
+            .card {
+                display: flex;
+                align-items: center;
+            }
+            .card img {
+                max-width: 100px;
+                margin-right: 20px;
+                border-radius: 8px;
+            }
+            .card p {
+                margin: 0;
+                font-size: 1.2em;
+                color: #333;
+            }
+            .card button {
+                padding: 10px 20px;
+                background-color: #28a745;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .card button:hover {
+                background-color: #218838;
+            }
+        </style>
+
+    </div>
+
+
+<script>
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            console.log(`${name} added to cart`);
+            console.log(cart);
+            alert(`${name} added to cart`);
+        }
+    </script>
+
+{% endblock %}

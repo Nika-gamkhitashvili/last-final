@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.nav_bar {
+    background-color: #333;
+    overflow: hidden;
+}
+
+.nav_bar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav_bar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+body {
+    background-image: url("{% static 'images/image6.jpg' %}");
+    background-size: cover; /* სურათი მოერგება ეკრანის ზომას */
+    background-position: center; /* სურათი განთავსდება ცენტრში */
+    background-repeat: no-repeat; /* სურათი არ განმეორდება */    
+}
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-top: 20px;
+}   
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    }
+h2 {
+    text-align: center;
+    color: #333;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #444;
+}
